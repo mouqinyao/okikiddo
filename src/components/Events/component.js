@@ -1,16 +1,19 @@
 import React from 'react';
 import {
-    StyleSheet, Text, View, Image
+    StyleSheet, Text, View
 } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 
 const styles = StyleSheet.create({
     events: {
-        position: 'relative',
-        padding: 20
+        padding: 10
+    },
+    calendarContainer: {
+        marginBottom: 20
     },
     eventsContainer: {
-        marginHorizontal: -20,
-        paddingVertical: 20,
+        marginHorizontal: -10,
+        paddingVertical: 30,
         paddingHorizontal: 10,
         backgroundColor: '#e5e5e5',
         borderTopLeftRadius: 10,
@@ -20,6 +23,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.8,
         shadowRadius: 10,
         elevation: 5
+    },
+    eventsSrollIcon: {
+        position: 'absolute',
+        top: 10,
+        left: '48%',
+        width: 40,
+        height: 5,
+        borderRadius: 20,
+        backgroundColor: '#ffffff',
+        textAlign: 'center'
     },
     eventsHeader: {
         marginBottom: 5,
@@ -84,6 +97,10 @@ const styles = StyleSheet.create({
         color: '#545454',
         fontSize: 13
     },
+    eventUserIcon: {
+        height: 10,
+        width: 10
+    },
     eventsTitle: {
         marginBottom: 5,
         fontSize: 11,
@@ -99,10 +116,13 @@ const styles = StyleSheet.create({
 const Events = () => {
     return (
         <View style={styles.events}>
-            <View>
-                <Text>Calendar Placeholder</Text>
+            <View style={styles.calendarContainer}>
+                <Calendar
+                    current="2019-02-16"
+                />
             </View>
             <View style={styles.eventsContainer}>
+                <View style={styles.eventsSrollIcon} />
                 <Text style={styles.eventsHeader}>待办事项</Text>
                 <View style={styles.eventsBlock}>
                     <View style={styles.eventsLeftDot} />
